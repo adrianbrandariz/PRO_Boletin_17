@@ -14,21 +14,25 @@ package pro_boletin_17_3;
  */
 public class Dam {
 
-    int tamaño = 30;
+    //Ajustado el tamaño del array para el ejercicio.
+    int tamaño = 5;
     int[] notas = new int[tamaño];
+    String[] alumnos = {"AA", "BB", "CC", "DD", "EE"};
+
     /**
-     * Método "notas" que genera una nota aleatoria para cada alumno, le
-     * da el valor a una variable auxiliar de tipo int y luego el array recibe
-     * el valor de esa variable.
+     * Método "notas" que genera una nota aleatoria para cada alumno, le da el
+     * valor a una variable auxiliar de tipo int y luego el array recibe el
+     * valor de esa variable.
      */
     public void notas() {
         for (int i = 0; i < tamaño; i++) {
             double notaAleatoria = Math.random() * 10 + 1;
             int valor = (int) notaAleatoria;
             notas[i] = valor;
-            System.out.println("Nota del alumno " + (i + 1) + " = " + notas[i]);
+            System.out.println("Nota del alumno " + alumnos[i] + " = " + notas[i]);
         }
     }
+
     /**
      * Método "verAprobados" que saca por pantalla los acumuladores de aprobados
      * y de suspensos, ambas variables de tipo int.
@@ -46,9 +50,10 @@ public class Dam {
         }
         System.out.println("Aprobados: " + aprobados + "\nSuspensos: " + suspensos);
     }
+
     /**
-     * Método "notaMedia" que calcula la nota media entre todos 
-     * los alumnos de programación.
+     * Método "notaMedia" que calcula la nota media entre todos los alumnos de
+     * programación.
      */
     public void notaMedia() {
         int acumulador = 0;
@@ -57,6 +62,7 @@ public class Dam {
         }
         System.out.println("Nota media de los alumnos de programación: " + (acumulador / tamaño));
     }
+
     /**
      * Método "notaAlta" que muestra la nota más alta de la clase.
      */
@@ -69,16 +75,40 @@ public class Dam {
         }
         System.out.println("Nota más alta: " + notaAlta);
     }
-    
+
+    /**
+     * Método "visualizarNota" que muestra la nota de cada alumno a través de
+     * una estructura repetitiva for.
+     */
     public void visualizarNota() {
         for (int i = 0; i < tamaño; i++) {
-            System.out.println("Alumno "+ i + " = " + notas[i]);
+            System.out.println("Alumno " + alumnos[i] + " = " + notas[i]);
         }
     }
-    
-    public void nombreAlumno() {
-        
+
+    /**
+     * Método "ordenarNotas" que ordena las notas de menos a mayor, y pasando
+     * también, el nombre del alumno.
+     */
+    public void ordenarNotas() {
+        int c = 0, aux;
+        String aux2;
+        do {
+            c = 0;
+            for (int i = 0; i < tamaño - 1; i++) {
+                if (notas[i] > notas[i + 1]) {
+                    aux = notas[i];
+                    notas[i] = notas[i + 1];
+                    notas[i + 1] = aux;
+
+                    aux2 = alumnos[i];
+                    alumnos[i] = alumnos[i + 1];
+                    alumnos[i + 1] = aux2;
+                    
+                    c = 1;
+                }
+            }
+        } while (c != 0);
     }
-    
-    
+
 }

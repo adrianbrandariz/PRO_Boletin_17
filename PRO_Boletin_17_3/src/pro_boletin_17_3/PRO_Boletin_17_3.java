@@ -18,11 +18,9 @@ public class PRO_Boletin_17_3 {
         Dam dam1 = new Dam();
         dam1.notas();
         System.out.println("\n");
-        dam1.verAprobados();
+        dam1.ordenarNotas();
         System.out.println("\n");
-        dam1.notaMedia();
-        System.out.println("\n");
-        dam1.notaAlta();
+        dam1.visualizarNota();
     }
 
 }
