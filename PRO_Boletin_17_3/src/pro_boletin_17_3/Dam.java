@@ -91,11 +91,24 @@ public class Dam {
      * también, el nombre del alumno.
      */
     public void ordenarNotas() {
-        int c = 0, aux;
+        // Se declaran las variables y se inicializa una variable que se usa como marca.
+        int c, aux;
         String aux2;
+        /*
+         * Estructura repetitiva do while en la cual está en bucle hasta que
+         * la variable c tome el valor de uno y no lo cambie.
+         */
         do {
             c = 0;
+            /*
+             * Estructura repetitiva de tipo for en la que seguirá en bucle
+             * hasta que "i < tamaño - 1". Contiene una estructura condicional if.
+             */
             for (int i = 0; i < tamaño - 1; i++) {
+                /*
+                 * Estructura condicional que permitirá reordenar los alumnos
+                 * en base a la nota.
+                 */
                 if (notas[i] > notas[i + 1]) {
                     aux = notas[i];
                     notas[i] = notas[i + 1];
